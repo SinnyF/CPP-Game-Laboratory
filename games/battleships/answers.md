@@ -1,9 +1,9 @@
 ﻿# Battleships Buggy Lab — Answers
 
 ## Team
-- Team name:
-- Partner A:
-- Partner B:
+- Team name: F Team
+- Partner A: Alex Pawlowski
+- Partner B:  Kevin Hamberg
 
 ---
 
@@ -12,11 +12,20 @@
 Fill this table by reading `games/battleships/specification.md` and mapping requirements to code.
 
 Requirement (from specification.md) | Pass/Fail/Unsure | Code location (file + class/function) | Notes (what it does)
+
 ---|---|---|---
 Example: Turns alternate after each valid shot |  | `battleships_buggy/src/core/Game.cpp` → `Game::AdvanceTurn` | flips current player index
 Example: Tracking board records shots |  | `battleships_buggy/src/core/Game.cpp` → `Game::ShootAtOpponent` | updates `Player::tracking`
 
 Add rows for all major requirements you verify.
+
+Print Board to Console|Pass|'ConsoleRenderer.cpp'>ConsoleRenderer::PrintBoard|Prints the current board into the console
+Ship Placement|Pass|'Board.cpp'>Board::PlaceShip|Handles valid placement of the ships on the board
+User input parsing|Pass|Input.cpp>Command::ParseCommandLoose|Takes input from the user and parses it into commands
+Handle shooting and hits|fail|Board.cpp>Board::Shoot|Handles shooting at enemy board by telling user if it was a hit or miss or if the shot was invalid. Also sets the cell in the board to proper state
+Detect winner condition|fail|Game.cpp>Game::ShootAtOpponent|Declare winner if the lost shot sunk the last ship
+Turn over ship placement to player 2|Fail|Game.cpp>Game::FinishSetupIfReady|Once player one places all ship the game turn over to player 2s board and starts their placement
+Parse coordinates from input to data|pass|Coord.cpp>Coord::ParseCoordLoose|Parse user input of coordinates into program readable data that can be used by other functions
 
 ---
 
